@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://static.hanwhalife.com/static/shared/favicon/favicon.ico"
+    />
+
+    <!-- jquery 최신버전 -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- swiper -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
+
+    <title>한화생명 다이렉트</title>
+
+    <script>
+      $(document).ready(function () {
+        // 슬라이드 설정
+        var mySwiper = new Swiper(".slide-swiper", {
+          observer: true, // DOM 변경 감지 활성화
+          observeParents: true, // 부모 요소의 변경 감지 활성화
+          slidesPerView: 1, // 한 슬라이드에 보여줄 갯수
+          spaceBetween: 8, // 슬라이드 사이 여백
+          loop: true, // 슬라이드 반복 여부
+          loopAdditionalSlides: 1, // 슬라이드 반복 시 마지막 슬라이드에서 다음 슬라이드가 보여지지 않는 현상 수정
+          centeredSlides: true, // true시에 슬라이드가 가운데로 배치
+          autoplay: {
+            // 자동 슬라이드 설정
+            delay: 3000, // 시간 설정
+            disableOnInteraction: false, // 버튼을 이용하여 컨트롤 한 이후에도 자동 재생 유지되도록
+          },
+          pagination: {
+            // 페이저 버튼 사용자 설정
+            el: ".swiper-pagination", // 버튼을 담을 태그 설정
+            clickable: true, // 클릭하여 슬라이드 컨트롤을 가능케 함. default는 false임.
+          },
+        });
+
+        // 헤더 메뉴 호버 이벤트
+        $(".header .container > ul > li")
+          .not(":eq(2), :eq(3)")
+          .hover(
+            function () {
+              $(".header-background").css("display", "block"); // 호버 했을 경우
+            },
+            function () {
+              $(".header-background").css("display", "none"); // 호버 제거
+            }
+          );
+
+        // Swiper 플레이/일시정지 버튼 클릭 이벤트 처리
+        $(".swiper-controls").click(function () {
+          if (mySwiper.autoplay.running) {
+            // 현재 자동 재생 중인 경우
+            mySwiper.autoplay.stop(); // Swiper 일시정지
+            $(this).css("background-image", "url(/assets/img/play.svg)");
+          } else {
+            // 현재 일시정지 상태인 경우
+            mySwiper.autoplay.start(); // Swiper 재생
+            $(this).css("background-image", "url(/assets/img/stop.svg)");
+          }
+        });
+
+        // 전체 메뉴 열기 이벤트
+        $("#allMenu").click(function () {
+          $(".header-background").css("display", "block");
+          $(".all-menu").css("display", "block");
+          $(".header .container ul.main-menu").css("display", "none");
+          $(".header .container div.i-class").css("display", "none");
+        });
+
+        // 전체 메뉴 닫기 이벤트
+        $(".all-menu-header button").click(function () {
+          $(".header-background").css("display", "none");
+          $(".all-menu").css("display", "none");
+          $(".header .container ul.main-menu").css("display", "flex");
+          $(".header .container div.i-class").css("display", "flex");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <a href="">
+          <img
+            src="https://static.hanwhalife.com/static/hlp/direct/images/logo.svg"
+            alt="한화생명 로고"
+          />
+        </a>
+        <ul class="main-menu">
+          <li>
+            <a href="">전체상품</a>
+            <div class="sub-menu">
+              <div class="container">
+                <div class="nav-children-banner">
+                  <a href="">
+                    <div class="txt-box">
+                      <div class="title">e시그니처암보험(무) 비갱신</div>
+                      <div class="content">
+                        보험료 인상 없이<br />암진단•수술•치료보장
+                      </div>
+                    </div>
+                    <img
+                      alt="보험료 인상 없이 암진단•수술•치료보장"
+                      src="https://static.hanwhalife.com/static/hlp/direct/images/banner/pc-header-reco-banner-cancer.svg"
+                    />
+                  </a>
+                </div>
+                <div class="nav-children-menu">
+                  <div>
+                    <div class="nav-children-title">보험</div>
+                    <ul>
+                      <li><a href="#">암보험</a></li>
+                      <li><a href="#">건강보험</a></li>
+                      <li><a href="#">사망보험</a></li>
+                      <li><a href="#">저축·연금보험</a></li>
+                      <li><a href="#">유병자보험</a></li>
+                      <li><a href="#">치아보험</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div class="nav-children-title">대출</div>
+                    <ul>
+                      <li><a href="#">보험계약대출</a></li>
+                      <li><a href="#">신용대출</a></li>
+                      <li><a href="#">담보대출</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="">고객센터</a>
+            <div class="sub-menu">
+              <div class="container">
+                <div class="nav-children-help">
+                  <div class="help-header">
+                    <div class="title">다이렉트 가입문의</div>
+                    <div class="tel">1544-6385</div>
+                  </div>
+                  <div class="help-menu">
+                    <button>
+                      <img src="/assets/img/kakao.svg" alt="카카오톡 상담" />
+                      <span>카카오톡 상담</span>
+                    </button>
+                    <button>
+                      <img src="/assets/img/tel.svg" alt="전화상담예약" />
+                      <span>전화상담예약</span>
+                    </button>
+                    <button>
+                      <img src="/assets/img/email.svg" alt="이메일 상담" />
+                      <span>이메일 상담</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="nav-children-menu">
+                  <div>
+                    <ul>
+                      <li><a href="#">자주묻는질문</a></li>
+                      <li><a href="#">상담하기</a></li>
+                      <li><a href="#">지점찾기</a></li>
+                      <li><a href="#">보험가입안내</a></li>
+                      <li><a href="#">보험용어사전</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="">공지사항</a></li>
+          <li><a href="">이벤트·혜택</a></li>
+        </ul>
+        <div class="i-class">
+          <img src="/assets/img/myPage.svg" alt="마이페이지" />
+          <img id="allMenu" src="/assets/img/menu.svg" alt="메뉴" />
+        </div>
+        <div class="all-menu">
+          <div class="container">
+            <div class="all-menu-item">
+              <p class="all-menu-title">전체상품</p>
+              <div class="menu1">
+                <div>
+                  <p>보험</p>
+                  <ul>
+                    <li><a href="#">암보험</a></li>
+                    <li><a href="#">건강보험</a></li>
+                    <li><a href="#">사망보험</a></li>
+                    <li><a href="#">저축·연금보험</a></li>
+                    <li><a href="#">유병자보험</a></li>
+                    <li><a href="#">치아보험</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <p>대출</p>
+                  <ul>
+                    <li><a href="#">보험계약대출</a></li>
+                    <li><a href="#">신용대출</a></li>
+                    <li><a href="#">담보대출</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="all-menu-item">
+              <p class="all-menu-title">고객센터</p>
+              <ul>
+                <li><a href="#">자주묻는질문</a></li>
+                <li><a href="#">상담하기</a></li>
+                <li><a href="#">지점찾기</a></li>
+                <li><a href="#">보험가입안내</a></li>
+                <li><a href="#">보험용어사전</a></li>
+              </ul>
+            </div>
+            <div class="all-menu-item">
+              <p class="all-menu-title">공지사항</p>
+            </div>
+            <div class="all-menu-item">
+              <p class="all-menu-title">이벤트·혜택</p>
+            </div>
+            <div class="all-menu-header">
+              <a href="#">공시실</a>
+              <a href="#">앱다운로드</a>
+              <button type="button"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="header-background"></div>
+    <!-- //header -->
+    <section class="recomend">
+      <div class="container">
+        <div class="recomend-left">
+          <p class="recomend-title">오늘의 추천</p>
+          <div class="slide-swiper">
+            <ul class="swiper-wrapper">
+              <li class="swiper-slide slide1">
+                <a href="">
+                  <p class="title">e시그니처암보험(무) 비갱신</p>
+                  <div class="content">
+                    보험료 인상 없이<br />암진단•수술•치료보장
+                  </div>
+                  <span class="detail-view">자세히 보기</span>
+                  <img
+                    alt="보험료 인상 없이 암진단•수술•치료보장 e시그니처암보험(무) 비갱신"
+                    src="https://static.hanwhalife.com/static/hlp/direct/images/banner/banner_dw_in_000005.svg"
+                  />
+                </a>
+              </li>
+              <li class="swiper-slide slide2">
+                <a href="">
+                  <p class="title">디딤돌저축보험(무)</p>
+                  <div class="content">
+                    100% 원금 보장과<br />확정금리 5%로 든든하게
+                  </div>
+                  <span class="detail-view">자세히 보기</span>
+                  <img
+                    alt="100% 원금 보장과 확정금리 5%로 든든하게 디딤돌저축보험(무)"
+                    src="https://static.hanwhalife.com/static/hlp/direct/images/banner/banner_dw_in_000006.svg"
+                  />
+                </a>
+              </li>
+              <li class="swiper-slide slide3">
+                <a href="">
+                  <p class="title">e정기보험(무)</p>
+                  <div class="content">
+                    건강고객 조건 충족시<br />보험료 최대 20% 할인
+                  </div>
+                  <span class="detail-view">자세히 보기</span>
+                  <img
+                    alt="건강고객 조건 충족시 보험료 최대 20% 할인 e정기보험(무)"
+                    src="https://static.hanwhalife.com/static/hlp/direct/images/banner/banner_dw_in_000009.svg"
+                  />
+                </a>
+              </li>
+              <li class="swiper-slide slide4">
+                <a href="">
+                  <p class="title">e암보험(비갱신)(무)</p>
+                  <div class="content">
+                    비흡연자 할인으로<br />보험료 최대 32.5% 할인
+                  </div>
+                  <span class="detail-view">자세히 보기</span>
+                  <img
+                    alt="비흡연자 할인으로 보험료 최대 32.5% 할인 e암보험(비갱신)(무)"
+                    src="https://static.hanwhalife.com/static/hlp/direct/images/banner/banner_dw_in_000010.svg"
+                  />
+                </a>
+              </li>
+              <li class="swiper-slide slide5">
+                <a href="">
+                  <p class="title">보험계약대출</p>
+                  <div class="content">
+                    보험 보장은 그대로<br />3분 안에 대출 바로 받기
+                  </div>
+                  <span class="detail-view">자세히 보기</span>
+                  <img
+                    alt="보험 보장은 그대로 3분 안에 대출 바로 받기 보험계약대출"
+                    src="https://static.hanwhalife.com/static/hlp/direct/images/banner/banner_dw_lo_000002.svg"
+                  />
+                </a>
+              </li>
+            </ul>
+            <div class="swiper-pagination"></div>
+            <button class="swiper-controls"></button>
+          </div>
+        </div>
+        <div class="recomend-right">
+          <p class="recomend-title">보험상품</p>
+          <div class="recomend-list">
+            <a href="">
+              <img
+                src="https://api.hanwhalife.com/tom/images/Dg3hw61.png"
+                alt="암"
+              />
+              <span>암</span>
+            </a>
+            <a href="">
+              <img
+                src="https://api.hanwhalife.com/tom/images/SLZEg.png"
+                alt="건강"
+              />
+              <span>건강</span>
+            </a>
+            <a href="">
+              <img
+                src="https://api.hanwhalife.com/tom/images/zL4l0P3.png"
+                alt="사망"
+              />
+              <span>사망</span>
+            </a>
+            <a href="">
+              <img
+                src="https://api.hanwhalife.com/tom/images/XZ9ICc942.png"
+                alt="저축·연금"
+              />
+              <span>저축·연금</span>
+            </a>
+            <a href="">
+              <img
+                src="https://api.hanwhalife.com/tom/images/fk5P92.png"
+                alt="유병자"
+              />
+              <span>유병자</span>
+            </a>
+          </div>
+          <p class="recomend-title">대출상품</p>
+          <div class="recomend-list">
+            <a href="">
+              <img
+                src="https://api.hanwhalife.com/tom/images/vof90MnE.png"
+                alt="보험계약대출"
+              />
+              <span>보험계약대출</span>
+            </a>
+            <a href="">
+              <img
+                src="https://api.hanwhalife.com/tom/images/0M0.png"
+                alt="신용대출"
+              />
+              <span>신용대출</span>
+            </a>
+            <a href="">
+              <img
+                src="https://api.hanwhalife.com/tom/images/OXc2zB.png"
+                alt="담보대출"
+              />
+              <span>담보대출</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- //section recomend -->
+    <section class="product">
+      <div class="container"></div>
+    </section>
+    <section class="notice">
+      <div class="container"></div>
+    </section>
+    <footer class="footer">
+      <div class="container"></div>
+    </footer>
+  </body>
+</html>
